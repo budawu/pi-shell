@@ -1,14 +1,15 @@
+import sys
 import os
-#import funcbase
+import shlex
 
-all_the_tokens=['echo','exit','',]
 
+all_the_tokens=['echo','exit','cd',]
+PATH=os.getcwd()
 
 def run():
-    PATH=os.getcwd()
     sym=input(f"{PATH} -Pysh◆")
     global tokens
-    tokens=sym.split()
+    tokens=shlex.split(sym)
 
 def addfunc(token,runfunc):
     if tokens[0]==token:
@@ -28,6 +29,15 @@ def exit_():
             exit()
     except IndexError:
         pass
+def cd():
+    try:
+        if tokens[0]=='cd':
+            global PATH
+            PATH=sys.path.append(tokens[1])
+        if len(tokens) >= 3:
+            print('cd: too many arguments')
+    except IndexError:
+        pass
 
 def run_all_functions():
     '''run all the functions'''
@@ -38,3 +48,4 @@ def run_all_functions():
         pass
     echo()
     exit_()
+    cd()
