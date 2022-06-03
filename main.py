@@ -1,4 +1,3 @@
-import sys
 import os
 import shlex
 
@@ -7,7 +6,7 @@ all_the_tokens=['echo','exit','cd',]
 PATH=os.getcwd()
 
 def run():
-    sym=input(f"{PATH} -Pysh◆")
+    sym=input(f"{PATH} ∞")
     global tokens
     tokens=shlex.split(sym)
 
@@ -33,7 +32,8 @@ def cd():
     try:
         if tokens[0]=='cd':
             global PATH
-            PATH=sys.path.append(tokens[1])
+            os.chdir(tokens[1])
+            PATH=os.getcwd()
         if len(tokens) >= 3:
             print('cd: too many arguments')
     except IndexError:
@@ -43,7 +43,7 @@ def run_all_functions():
     '''run all the functions'''
     try:
         if tokens[0] not in all_the_tokens:
-            print('Pysh: command not found')
+            print('ish: command not found')
     except IndexError:
         pass
     echo()
