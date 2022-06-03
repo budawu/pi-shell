@@ -1,7 +1,7 @@
-# Pysh-基于Python的命令行
+# Infinite Shell-基于Python的命令行
 <p>
-<h1> Latest release: 0.0.1</h1>
-1 June 2022
+<h1> Latest release: 0.0.2</h1>
+3 June 2022
 </p>
  
 
@@ -11,10 +11,11 @@
 （如你所见，真的很糟糕！）
 ## 语法
 关键词+空格+关键词
-截止0.0.1版本，只支持echo和exit。
+截止0.0.3版本，支持的指令为：
+cd echo exit
 
-```
-C:\pythondemo\pysh -Pysh◆ echo hello,world!
+```shell
+C:/pythondemo/ish ∞  echo "hello,world!"
 ```
 
 
