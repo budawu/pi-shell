@@ -1,12 +1,14 @@
 import os
 import shlex
 
+from colorama import Fore
+
 
 all_the_tokens=['echo','exit','cd',]
 PATH=os.getcwd()
 
 def run():
-    sym=input(f"{PATH} ∞")
+    sym=input(f"{Fore.BLUE}{PATH} ∞{Fore.RESET} ")
     global tokens
     tokens=shlex.split(sym)
 
@@ -35,7 +37,7 @@ def cd():
             os.chdir(tokens[1])
             PATH=os.getcwd()
         if len(tokens) >= 3:
-            print('cd: too many arguments')
+            print(Fore.RED+'cd: too many arguments'+Fore.RESET)
     except IndexError:
         pass
 
@@ -43,7 +45,7 @@ def run_all_functions():
     '''run all the functions'''
     try:
         if tokens[0] not in all_the_tokens:
-            print('ish: command not found')
+            print(Fore.RED+'ish: command not found'+Fore.RESET)
     except IndexError:
         pass
     echo()
