@@ -1,7 +1,7 @@
 # Infinite Shell-基于Python的命令行
 <p>
-<h1> Latest release: 0.0.2</h1>
-3 June 2022
+<h1> Latest release: 0.0.3</h1>
+10 June 2022
 </p>
  
 
