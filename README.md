@@ -1,22 +1,44 @@
 # PI Shell-基于Python的命令行
-
-### 事先声明：这只是一个初中小白瞎搞的东西，不喜勿喷！
-## 实现原理
-字符串切片，关键词识别  
-## 语法
-关键词+空格+关键词
-截止0.0.3版本，支持的指令为：
-`cd` `$`(运行系统默认shell指令)
-`echo`(支持字符串)`runpy`(运行Python代码)  
-`exit`
-e.g:
+  
+read this file in other languages:   简体中文 | [English](/README-en.md)
+  
+## 最新版本：0.0.4
+  * 解决了按Enter键或'\\'退出的问题
 
 ```shell
 C:/pythondemo/pish π  echo "hello,pi shell!"
 ```
-# 不成熟的指令
- * var (变量)
- * 算式
- * 按enter键会自动退出
+
+### 运行
+```shell
+python pish.py
+```
+  
+## 语法
+### 1.echo
+输出指令。支持字符串。
+```shell
+echo 'hello'
+```
+### 2.cd
+切换目录
+
+### 3.$操作符
+执行系统默认shell，如在Windows端为cmd，Linux端为$SHELL。
+```shell
+$ python pish.py
+```
+### 4.runpy
+运行Python代码
+```
+runpy import sys
+```
+### 5.exit
+退出。
+
+
+   	
+
+
 
 

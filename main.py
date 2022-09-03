@@ -18,6 +18,7 @@ import re
 
 from colorama import Fore,init
 
+version='0.0.4'
 all_the_tokens=['echo','exit','cd','run$','var','runpy']
 definevars={
     'PATH':os.getcwd(),
@@ -28,7 +29,10 @@ def shell():
     '''initialize the shell'''
     sym=input(f'{Fore.YELLOW}{PATH}{Fore.RESET}'+f"{Fore.BLUE} ~π{Fore.RESET} ")
     global tokens
-    tokens=shlex.split(sym)
+    try:
+        tokens=shlex.split(sym)
+    except ValueError:
+        pass
 
 def echo():
     try:
@@ -145,15 +149,17 @@ def using_var():
 
 def run_python():
     '''call Python code'''
-    if tokens[0]=='runpy':
-        try:
-            exec(tokens[1])
-        except IndexError:
-            pass
-      
-        except Exception as e:
-            print(f'{Fore.RED}{e}{Fore.RESET}')
-    
+    try:
+        if tokens[0]=='runpy':
+            try:
+                exec(tokens[1])
+            except IndexError:
+                pass
+        
+            except Exception as e:
+                print(f'{Fore.RED}{e}{Fore.RESET}')
+    except IndexError:
+        pass
         
 
 def run_all_functions():
@@ -164,6 +170,8 @@ def run_all_functions():
             print(f'{Fore.RED}{tokens[0]}: command not found{Fore.RESET}')
     except IndexError:
         pass
+    except ValueError:
+        pass
     echo()
     exit_()
     cd()
@@ -173,4 +181,3 @@ def run_all_functions():
     using_var()
     run_python()
 
-    operation(tokens[0])

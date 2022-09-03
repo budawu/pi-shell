@@ -9,8 +9,8 @@ ____   _   _____            _ _
 |  __/| |  ___) | | | |  __/ | |
 |_|   |_| |____/|_| |_|\___|_|_|
     '''
-    'pi-shell 0.0.3'
-    'type "exit" or "\\" to exit.'
+f'Pi-shell {main.version}'
+'Type "exit" or Ctrl+C to exit.'
 )
 while True:
     try:
