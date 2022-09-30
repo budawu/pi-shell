@@ -1,5 +1,5 @@
 # PI Shell - Python based command line
->CAUTION:This readme is translated from Chinese by Goggle Translate.Report grammar mistakes in [Issues#documentation](https://github.com/budawu/pi-shell/labels/documentation).
+>CAUTION:This readme is translated from Chinese by Google Translate.Report grammar mistakes in [Issues#documentation](https://github.com/budawu/pi-shell/labels/documentation).
 
 Read this document in other languages: [简体中文](/README.md) | English
 
