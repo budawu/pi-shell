@@ -13,16 +13,16 @@ e.g. print(f'{Fore.RED}cd: command not found{Fore.RESET}')
 
 import os
 from init import *
-
-
+import settings
+from colorama import Fore
 PATH = os.getcwd()
 
-VERSION = 'v0.3.0'
 class PiShell:
     def __init__(self,token:list,mode,running:bool) -> None:
         self.token = token
         self.mode = mode
         self.running = running
+
 #        print(self.token)
         
     def exit_(self) -> None:
@@ -115,20 +115,11 @@ class PiShell:
 
 
 if __name__== '__main__':
-    print(
-    '''
-____   _   _____            _ _ 
-|  _ \(_) / ___|| |__   ___| | |
-| |_) | | \___ \| '_ \ / _ \ | |
-|  __/| |  ___) | | | |  __/ | |
-|_|   |_| |____/|_| |_|\___|_|_|
-    '''
-f'Pi-shell {VERSION}\n'
-' Type "exit" or Ctrl+C to exit.'
-)  
+    print(settings.START)
+  
     while True:
         try:
-            pish = PiShell(shell(input(f'{Fore.YELLOW}{PATH}{Fore.RESET}'+f"{Fore.BLUE} ~π{Fore.RESET} ")),'shell',running=True)
+            pish = PiShell(shell(input(f'{settings.PATHCOLOR}{PATH}{Fore.RESET}'+f"{settings.PROMPTCOLOR} ~π{Fore.RESET} ")),'shell',running=True)
             pish.run()
         except KeyboardInterrupt:
             exit()
