@@ -3,14 +3,18 @@
 
 Read this document in other languages: [简体中文](/README.md) | English
 
-## Latest version: v0.2
+## Latest version: v0.3.0
   Now the source code is object oriented!
 ```
 C:/pythondemo/pish π echo "hello,pi shell!"
 ```
 ## run Pi-shell
 ```shell
-python pish.py
+python src/main.py
+```
+or 
+```powershell
+.\pish
 ```
 ## syntax
 ### 1.`echo`

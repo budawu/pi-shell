@@ -2,7 +2,7 @@
   
 Read this document in other languages:   简体中文 | [English](/README-en.md)
   
-## 最新版本：v0.2
+## 最新版本：v0.3.0
   用面向对象重构了源代码
 
 ```shell
@@ -11,7 +11,11 @@ C:/pythondemo/pish π  echo "hello,pi shell!"
 
 ### 运行
 ```shell
-python pish.py
+python src/main.py
+```
+在powershell:
+```poweershell
+.\pish
 ```
   
 ## 语法
