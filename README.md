@@ -2,8 +2,9 @@
   
 Read this document in other languages:   简体中文 | [English](/README-en.md)
   
-## 最新版本：v0.3.0
-  用面向对象重构了源代码
+## 最新版本：v0.3.1
+  * 编译成Python运行
+  * 添加设置
 
 ```shell
 C:/pythondemo/pish π  echo "hello,pi shell!"
