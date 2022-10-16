@@ -69,16 +69,19 @@ class PiShell:
             pass
         except FileNotFoundError as e:
             print(f'{Fore.RED}cd: {e}{Fore.RESET}')
-    
+    '''
     def operation(self):
-        '''operations'''
-        exp = eval(str(self.token))
-        if self.mode == 'script':
-            return exp 
-        if self.mode == 'shell':
-            print(exp)
+        """operations"""
+        try:
+            exp = eval(str(self.token))
+            if self.mode == 'script':
+                return exp
+            if self.mode == 'shell':
+                print(exp)
             return exp
-
+        except NameError:
+            pass
+'''
     def shcommand(self):
         '''
         run shell for system command,
@@ -97,8 +100,8 @@ class PiShell:
 
     def pyimport(self)-> None:
         try:
-            if self.token[0][0]=='%':
-                code = f'import {self.token[0][1:]}'
+            if self.token[0]=='imp':
+                code = f'import {self.token[1]}'
                 if self.running==True:
                     exec(code)
                 return code
@@ -112,7 +115,7 @@ class PiShell:
         self.exit_()
         self.cd()
         self.shcommand()
-
+        self.pyimport()
 
 if __name__== '__main__':
     print(settings.START)
