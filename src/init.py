@@ -5,9 +5,10 @@ def shell(sym):
     '''read the command line'''
     try:
         try:
-            argstr=shlex.split(sym)
-            return argstr
+            code=shlex.split(sym)
+            return code
         except ValueError:
             pass
     except EOFError:
         print('\n')
+

@@ -1,3 +1,2 @@
-class PishImportErr:
-    def __run__():
-        return f'''ImportError:\n{ImportError}'''
+class PishImportErr(ImportError):
+    print(f'''E:module not found\n{ImportError}''')

@@ -14,16 +14,34 @@ e.g. print(f'{Fore.RED}cd: command not found{Fore.RESET}')
 import os
 from init import *
 import settings
+import errors
+
 from colorama import Fore
+
 PATH = os.getcwd()
 
 class PiShell:
-    def __init__(self,token:list,mode,running:bool) -> None:
+    def __init__(self,token:list,mode,code,running:bool) -> None:
         self.token = token
         self.mode = mode
         self.running = running
+        self.code = code
+        try:
+            fnlength=len(self.token[0])+1
+            argstr = self.code[fnlength:]
+            self.argstr = argstr
+
+
+        except IndexError:
+            pass
 
 #        print(self.token)
+
+
+
+        except IndexError:
+            pass
+
         
     def exit_(self) -> None:
         try:
@@ -60,28 +78,28 @@ class PiShell:
                     exec(code)
                 global PATH
                 PATH = os.getcwd()
-                
+                if len(self.token)>2:
+                    print(f'{Fore.RED}cd:too many arguments{Fore.RESET}')
                 return code
-            if len(self.token)>2:
-                print(f'{Fore.RED}cd:too many arguments{Fore.RESET}')
+                
         
         except IndexError:
             pass
         except FileNotFoundError as e:
             print(f'{Fore.RED}cd: {e}{Fore.RESET}')
-    '''
+
     def operation(self):
-        """operations"""
+        '''operations'''
         try:
-            exp = eval(str(self.token))
-            if self.mode == 'script':
-                return exp
-            if self.mode == 'shell':
-                print(exp)
-            return exp
-        except NameError:
+            if self.token[0]=='exp':
+                code = f'eval(\'{self.argstr}\')'
+                if self.running==True:
+                    exec(code)
+                return code
+        except IndexError:
             pass
-'''
+            
+
     def shcommand(self):
         '''
         run shell for system command,
@@ -90,7 +108,7 @@ class PiShell:
         '''
         try:
             if self.token[0] == '$':
-                code = f'os.system(\'{self.token[1]}\')'
+                code = f'os.system(\'{self.argstr}\')'
                 if self.running == True:
                     exec(code)            
                 if len(self.token) == 1:
@@ -105,6 +123,8 @@ class PiShell:
                 if self.running==True:
                     exec(code)
                 return code
+        except ImportError:
+            errors.PishImportErr()
         except IndexError:
             pass
     
@@ -122,7 +142,8 @@ if __name__== '__main__':
   
     while True:
         try:
-            pish = PiShell(shell(input(f'{settings.PATHCOLOR}{PATH}{Fore.RESET}'+f"{settings.PROMPTCOLOR} ~π{Fore.RESET} ")),'shell',running=True)
+            cmd=input(f'{settings.PATHCOLOR}{PATH}{Fore.RESET}'+f"{settings.PROMPTCOLOR} ~π{Fore.RESET} ")
+            pish = PiShell(shell(cmd),'shell',cmd,running=True)
             pish.run()
         except KeyboardInterrupt:
             exit()
