@@ -14,7 +14,7 @@ e.g. print(f'{Fore.RED}cd: command not found{Fore.RESET}')
 import os
 from init import *
 import settings
-import errors
+
 
 from colorama import Fore
 
@@ -123,11 +123,11 @@ class PiShell:
                 if self.running==True:
                     exec(code)
                 return code
-        except ImportError:
-            errors.PishImportErr()
+        except ModuleNotFoundError  as e:
+            print(f'{Fore.RED}module not found\n{e}{Fore.RESET}')
         except IndexError:
             pass
-    
+            
 
 
     def run(self):
