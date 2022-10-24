@@ -3,8 +3,8 @@
 
 Read this document in other languages: [简体中文](/README.md) | English
 
-## Latest version: v0.3.1
-  Now the source code is object oriented!
+## Latest version: v0.3.2
+  
 ```
 C:/pythondemo/pish π echo "hello,pi shell!"
 ```

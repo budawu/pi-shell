@@ -2,9 +2,9 @@
   
 Read this document in other languages:   简体中文 | [English](/README-en.md)
   
-## 最新版本：v0.3.1
-  * 编译成Python运行
-  * 添加设置
+## 最新版本：v0.3.2
+  * 改善了$操作符
+  * 使用断言`-0`,据说可以提速
 
 ```shell
 C:/pythondemo/pish π  echo "hello,pi shell!"
